@@ -11,5 +11,5 @@ public interface ProyectoGateway {
     Optional<Proyecto> getProyectoById(int idProyecto);
     Proyecto saveProyecto(Proyecto proyecto);
     void deleteProyecto(int idProyecto);
-
+    List<Proyecto> getBytecnologiaContains(String tecnologia);
 }

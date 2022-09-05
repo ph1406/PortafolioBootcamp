@@ -28,6 +28,25 @@ public class UsuarioController {
         return new ResponseEntity<>(servicio.getUsuarioByRut(id).get(), HttpStatus.OK);
     }
 
+
+    @GetMapping("/ciudad/{ciudad}")
+    public ResponseEntity<List<Usuario>> getByciudadContains(@PathVariable("ciudad") String ciudad)
+    {
+        return new ResponseEntity<>(servicio.getByciudadContains(ciudad), HttpStatus.OK);
+    }
+
+    @GetMapping("/pais/{pais}")
+    public ResponseEntity<List<Usuario>> getBypaisContains(@PathVariable("pais")  String pais)
+    {
+        return new ResponseEntity<>(servicio.getBypaisContains(pais), HttpStatus.OK);
+    }
+    @GetMapping("/disponibleExtranjero/{activo}")
+    public ResponseEntity<List<Usuario>> getBydisponibleExtranjero(@PathVariable("activo")  int activo)
+    {
+        Boolean buscaDisponibles = (activo==1);
+        return new ResponseEntity<>(servicio.getBydisponibleExtranjero(buscaDisponibles), HttpStatus.OK);
+    }
+
     @PostMapping("/save")
     public ResponseEntity<Usuario> save(@RequestBody Usuario usuario)
     {

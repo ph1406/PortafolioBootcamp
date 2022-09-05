@@ -11,4 +11,8 @@ public interface UsuarioGateway {
     Optional<Usuario> getUsuarioByRut(long rut);
     Usuario saveUsuario(Usuario usuario);
     void deleteUsuario(long rut);
+
+    List<Usuario> getByciudadContains(String ciudad);
+    List<Usuario> getBypaisContains(String pais);
+    List<Usuario> getBydisponibleExtranjero(boolean disponibleExtranjero);
 }

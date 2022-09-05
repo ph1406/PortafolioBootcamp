@@ -46,4 +46,25 @@ public class UsuarioRepository implements UsuarioGateway {
     public void deleteUsuario(long rut) {
         crudRepository.deleteById(rut);
     }
+
+    @Override
+    public List<Usuario> getByciudadContains(String ciudad) {
+        List<UsuarioDAO> daos = (List<UsuarioDAO>) crudRepository.findByciudadContains(ciudad);
+        List<Usuario> usuarios = mapper.toUsuarios(daos);
+        return usuarios;
+    }
+
+    @Override
+    public List<Usuario> getBypaisContains(String pais) {
+        List<UsuarioDAO> daos = (List<UsuarioDAO>) crudRepository.findBypaisContains(pais);
+        List<Usuario> usuarios = mapper.toUsuarios(daos);
+        return usuarios;
+    }
+
+    @Override
+    public List<Usuario> getBydisponibleExtranjero(boolean disponibleExtranjero) {
+        List<UsuarioDAO> daos = (List<UsuarioDAO>) crudRepository.findBydisponibleExtranjero(disponibleExtranjero);
+        List<Usuario> usuarios = mapper.toUsuarios(daos);
+        return usuarios;
+    }
 }

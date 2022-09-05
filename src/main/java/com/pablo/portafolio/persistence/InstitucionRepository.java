@@ -46,4 +46,11 @@ public class InstitucionRepository implements InstitucionGateway {
     public void deleteInstitucion(int idInstitucion) {
         crudRepository.deleteById(idInstitucion);
     }
+
+    @Override
+    public List<Institucion> findBynombreTituloContains(String nivel_filtro) {
+        List<InstitucionDAO> lst = (List<InstitucionDAO>)crudRepository.findBynombreTituloContains(nivel_filtro);
+        List<Institucion> lsal = mapper.toInstituciones(lst);
+        return lsal;
+    }
 }

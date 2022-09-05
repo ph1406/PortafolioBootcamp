@@ -24,6 +24,11 @@ public class ProyectoController {
     {
         return new ResponseEntity<>(servicio.getAll(), HttpStatus.OK);
     }
+    @GetMapping("/tecnologia/{tecnologia}")
+    public ResponseEntity<List<Proyecto>> getProyectoTecnologia(@PathVariable("tecnologia") String tecnologia)
+    {
+        return new ResponseEntity<>(servicio.getBytecnologiaContains(tecnologia), HttpStatus.OK);
+    }
 
     @GetMapping("/{id}")
     public ResponseEntity<Proyecto> getById(@PathVariable("id") int id)

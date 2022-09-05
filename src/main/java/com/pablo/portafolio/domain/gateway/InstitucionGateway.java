@@ -12,5 +12,6 @@ public interface InstitucionGateway {
     Institucion saveInstitucion(Institucion institucion);
     void deleteInstitucion(int idInstitucion);
 
+    List<Institucion> findBynombreTituloContains(String nivel_filtro);
 
 }

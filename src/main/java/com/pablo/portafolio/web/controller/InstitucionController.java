@@ -29,6 +29,11 @@ public class InstitucionController {
        return new ResponseEntity<>(servicio.getInstitucionById(idInstitucion).get(), HttpStatus.OK);
     }
 
+    @GetMapping("/nombretitulo/{filtro}")
+    public ResponseEntity<List<Institucion>> getBynombreTituloContains(@PathVariable("filtro") String filtro)
+    {
+        return new ResponseEntity<>(servicio.getBynombreTituloContains(filtro), HttpStatus.OK);
+    }
 
 
     @PostMapping("/save")

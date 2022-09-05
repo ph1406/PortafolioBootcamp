@@ -14,7 +14,7 @@ public class InstitucionService {
     @Autowired
     private InstitucionGateway gateway;
 
-
+    public  List<Institucion> getBynombreTituloContains(String nivel_filtro){ return gateway.findBynombreTituloContains(nivel_filtro); };
     public List<Institucion> getAll(){ return gateway.getAll(); }
     public Optional<Institucion> getInstitucionById(int idInstitucion){ return gateway.getInstitucionbyId(idInstitucion); }
     public Institucion saveInstitucion(Institucion institucion){ return gateway.saveInstitucion(institucion);}

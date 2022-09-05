@@ -46,4 +46,10 @@ public class ProyectoRepository implements ProyectoGateway {
     public void deleteProyecto(int idProyecto) {
         crudRepository.deleteById(idProyecto);
     }
+
+    @Override
+    public List<Proyecto> getBytecnologiaContains(String tecnologia) {
+        List<ProyectoDAO> lp = (List<ProyectoDAO>)crudRepository.findBytecnologiaContains(tecnologia);
+        return mapper.toProyectos(lp);
+    }
 }
